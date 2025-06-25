@@ -22,7 +22,7 @@ Your users should be able to:
 ### Links
 
 - Solution URL: [Solution URL here](https://github.com/chanwinharold/room-homepage-master)
-- Live Site URL: [Live site URL here](https://room-homepage-master-nu-murex.vercel.app)
+- Live Site URL: [Live site URL here](https://room-homepage-master-lovat-kappa.vercel.app/)
 
 ## Author
 
