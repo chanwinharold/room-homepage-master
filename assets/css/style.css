@@ -1,3 +1,4 @@
+/***********************CSS VARIABLES*****************************************/
 :root {
     /*Colors*/
 
@@ -10,12 +11,11 @@
     /*Typography*/
 
     /*Body Copy*/
-    --fs-normal: 1rem;
-    --fs-title-1: 2rem;
-    --fs-title-2: 1.8rem;
+    --fs-normal: 1em;
+    --fs-title: 2.5em;
 
     /*Font*/
-    --ff-normal: League Spartan;
+    --ff-normal: "League Spartan";
 
     --fw-light: 500;
     --fw-regular: 600;
@@ -38,16 +38,176 @@
     --breakpoint-desktop: 1440px;
 }
 
+
+/**************************GENERAL STYLING*******************************************/
 body {
+    font-family: var(--ff-normal), sans-serif;
+    font-size: var(--fs-normal);
     min-height: 100vh;
     display: grid;
     place-content: start;
+
+    @media (width > 1024px) {
+        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-rows: max-content max-content; }
+}
+main { @media (width > 1024px) {
+    *, *::before, *::after {
+        box-sizing: unset;}
+    grid-row: 1; grid-column: 1/4;
+    display: flex;
+    .homepage { flex-basis: 60%; }
+    .description { flex-basis: 30%; align-self: center; }
+}}
+
+
+.homepage {
+    --h-main: 375px;
+
+    min-height: var(--h-main);
+    padding: calc(var(--spacing-3) * 2) var(--spacing-3);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("/assets/img/images/mobile/mobile-image-hero-1.jpg");
+
+    @media (width > 768px) {
+        --h-main: 600px;
+
+        padding: var(--spacing-8);
+        background-image: url("/assets/img/images/desktop/desktop-image-hero-1.jpg");  }
+}
+.homepage__menu {
+    display: flex;
+    align-items: center;
+    @media (width > 768px) {  gap: var(--spacing-7); }
+}
+.homepage__logo {
+    @media (max-width: 768px) {
+        width: fit-content;
+        margin: auto;
+    }
 }
 
-/*.homepage {*/
-/*    position: relative;*/
-/*}*/
-/*.homepage__image {*/
-/*    position: absolute;*/
-/*    top: 0; bottom: 0; right: 0; left: 0; z-index: -5;*/
-/*}*/
+
+.navbar {
+    --h-navbar: 6.875rem;
+
+    @media (max-width: 768px) {
+        min-height: var(--h-navbar);
+        position: fixed;
+        top: 0; right: 0; left: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: calc(var(--spacing-3) * 2) var(--spacing-3);
+        background-color: var(--color-neutral-100);
+
+        transition: all 500ms ease;
+        margin-top: -100%;
+    }
+}
+.navbar ul {
+    display: flex;
+    gap: var(--spacing-4);
+}
+.navbar__link {
+    text-decoration: none;
+    text-transform: lowercase;
+    font-weight: var(--fw-regular);
+    color: var(--color-neutral-900);
+
+    @media (width > 768px) {
+        color: var(--color-neutral-100);
+        border-bottom: 2px transparent solid;
+        padding-bottom: 5px;
+        &:hover{
+            transition: border-bottom-color ease 800ms;
+            border-bottom-color: var(--color-neutral-100);
+        }
+    }
+}
+.navbar__close,
+.homepage__hamburger {
+    @media (width > 768px) {
+        display: none;  }
+}
+
+
+.description {
+    padding: var(--spacing-8) var(--spacing-4);
+    @media (width > 768px) {
+        padding: var(--spacing-8);  }
+}
+.description__article{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+.description__title {
+    font-size: var(--fs-title);
+    line-height: 1.5ch;
+    font-weight: var(--fw-regular);
+}
+.description__content,
+.about__content {
+    color: var(--color-neutral-500); }
+.description__link {
+    margin-block: var(--spacing-2);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5ch;
+    font-weight: var(--fw-light);
+    color: var(--color-neutral-800);
+
+    &:after {
+        content: "";
+        display: inline-flex;
+        align-items: center;
+        width: 40px; height: 20px;
+        margin-left: 1rem;
+        background: url("/assets/img/icons/icon-arrow.svg") no-repeat;}
+    &:hover {
+        color: var(--color-neutral-500); }
+}
+
+
+.about {
+    padding: var(--spacing-8) var(--spacing-4);
+    @media (width > 768px) {
+        padding: var(--spacing-5); }
+}
+.about__article {
+    height: 100%;
+    display: grid;
+    place-content: center;
+    gap: var(--spacing-2);
+}
+.about__title {
+    font-size: var(--fs-normal);
+    font-weight: var(--fw-regular);
+    text-transform: uppercase;
+    letter-spacing: 0.75ch;
+}
+
+
+.dark-container__image,
+.light-container__image {
+    min-width: 100%;
+    min-height: 266px;
+}
+
+
+/*************************CUSTOMS CLASSES*****************************************/
+.hidden {
+    display: none;
+}
+.on-screen {
+    transition: all 500ms ease;
+    margin: 0;
+}
+.blur-background {
+    position: fixed;
+    top: 0; bottom: 0; right: 0; left: 0;
+    background-color: hsla(0, 0%, 0%, 0.75);
+}
