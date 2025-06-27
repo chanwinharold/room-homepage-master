@@ -72,7 +72,7 @@ main { @media (width > 1024px) {
     background-size: cover;
 
     @media (width > 768px) {
-        --h-main: 600px;
+        --h-main: 356px;
 
         padding: var(--spacing-8);  }
 }
