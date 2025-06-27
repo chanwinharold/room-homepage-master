@@ -72,7 +72,7 @@ main { @media (width > 1024px) {
     background-size: cover;
 
     @media (width > 768px) {
-        --h-main: 600px;
+        --h-main: 356px;
 
         padding: var(--spacing-8);  }
 }
@@ -120,7 +120,7 @@ main { @media (width > 1024px) {
     @media (width > 768px) {
         color: var(--color-neutral-100);
         border-bottom: 2px transparent solid;
-        padding-bottom: 5px;
+        padding-bottom: 0.5rem;
         &:hover{
             transition: border-bottom-color ease 800ms;
             border-bottom-color: var(--color-neutral-100);
@@ -214,6 +214,7 @@ main { @media (width > 1024px) {
     padding: var(--spacing-2) var(--spacing-3);
     background-color: var(--color-neutral-900);
     &:hover {
+        transition: background-color 200ms ease;
         background-color: hsl(var(--accent-900), 25%);}
 }
 
@@ -231,6 +232,18 @@ main { @media (width > 1024px) {
     position: fixed;
     top: 0; bottom: 0; right: 0; left: 0;
     background-color: hsla(0, 0%, 0%, 0.75);
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
 }
 
 .firstImage {

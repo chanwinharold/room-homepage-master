@@ -18,7 +18,7 @@ const btnRight = document.querySelector(".switcher__right")
 const articlesContent = document.querySelectorAll(".description__article")
 const homepageBackground = document.querySelector(".homepage")
 
-let i = 0; let k = 0;
+let i = 0;
 let backgrounds = ["firstImage", "secondImage", "thirdImage"]
 
 btnRight.addEventListener("click", () => {
