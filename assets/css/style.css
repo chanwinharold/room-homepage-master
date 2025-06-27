@@ -64,18 +64,17 @@ main { @media (width > 1024px) {
 .homepage {
     --h-main: 375px;
 
+    position: relative;
     min-height: var(--h-main);
     padding: calc(var(--spacing-3) * 2) var(--spacing-3);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url("/assets/img/images/mobile/mobile-image-hero-1.jpg");
 
     @media (width > 768px) {
         --h-main: 600px;
 
-        padding: var(--spacing-8);
-        background-image: url("/assets/img/images/desktop/desktop-image-hero-1.jpg");  }
+        padding: var(--spacing-8);  }
 }
 .homepage__menu {
     display: flex;
@@ -97,6 +96,7 @@ main { @media (width > 1024px) {
         min-height: var(--h-navbar);
         position: fixed;
         top: 0; right: 0; left: 0;
+        z-index: 1;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -198,6 +198,26 @@ main { @media (width > 1024px) {
 }
 
 
+.switcher {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0; right: 0;
+    display: inline-flex;
+    
+    @media (width > 1024px) {
+        right: -124px;  }
+}
+.switcher span {
+    --accent-900: 0 0%;
+
+    cursor: pointer;
+    padding: var(--spacing-2) var(--spacing-3);
+    background-color: var(--color-neutral-900);
+    &:hover {
+        background-color: hsl(var(--accent-900), 25%);}
+}
+
+
 /*************************CUSTOMS CLASSES*****************************************/
 .hidden {
     display: none;
@@ -207,7 +227,24 @@ main { @media (width > 1024px) {
     margin: 0;
 }
 .blur-background {
+    z-index: 1;
     position: fixed;
     top: 0; bottom: 0; right: 0; left: 0;
     background-color: hsla(0, 0%, 0%, 0.75);
+}
+
+.firstImage {
+    background-image: url("/assets/img/images/mobile/mobile-image-hero-1.jpg");
+    @media (width > 768px) {
+        background-image: url("/assets/img/images/desktop/desktop-image-hero-1.jpg");  }
+}
+.secondImage {
+    background-image: url("/assets/img/images/mobile/mobile-image-hero-2.jpg");
+    @media (width > 768px) {
+        background-image: url("/assets/img/images/desktop/desktop-image-hero-2.jpg");  }
+}
+.thirdImage {
+    background-image: url("/assets/img/images/mobile/mobile-image-hero-3.jpg");
+    @media (width > 768px) {
+        background-image: url("/assets/img/images/desktop/desktop-image-hero-3.jpg");  }
 }
